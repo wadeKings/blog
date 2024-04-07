@@ -13,9 +13,10 @@ export default hopeTheme({
   },
   // 网站图标
   logo: "https://theme-hope-assets.vuejs.press/logo.svg",
-  // Git 仓库和编辑链接
-  repo: "vuepress-theme-hope/vuepress-theme-hope",
   hostname: "https://mister-hope.github.io",
+
+  // Git 仓库和编辑链接
+  repo: "https://github.com/wadeKings/blog",
 
   iconAssets: "//at.alicdn.com/t/c/font_4497477_nsf53qkbxlj.css",
 
@@ -140,7 +141,7 @@ export default hopeTheme({
       // flowchart: true,
 
       // gfm requires mathjax-full to provide tex support
-      // gfm: true,
+      gfm: true,
 
       // 在启用之前安装 katex
       // katex: true,
