@@ -48,3 +48,5 @@ docker run -d --name=buildmaster --restart=unless-stopped \
   -e BUILDMASTER_SQL_CONNECTION_STRING='Data Source=inedo-sql; Initial Catalog=BuildMaster; User ID=sa; Password=<YourStrong@Passw0rd>' \
   proget.inedo.com/productimages/inedo/buildmaster:latest
 ```
+5. 访问地址: `http://localhost:81/` 
+> 补充: 如果是本地部署,则使用localhost,否则换成自己的IP地址
