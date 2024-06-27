@@ -19,7 +19,7 @@ sticky: true
 2. 前题条件: 安装`docker`
 3. 安装下载: `sudo docker pull mcr.microsoft.com/mssql/server:2022-latest`
 
-### 安装BuildMaster
+## 安装BuildMaster
 
 1. 安装下载: `docker pull proget.inedo.com/productimages/inedo/buildmaster:23.0.17-ci.4`
 > 镜像仓库: `https://proget.inedo.com/containers/repositories/ProductImages/inedo/buildmaster/overview`
