@@ -2,20 +2,25 @@
 # See: https://circleci.com/docs/configuration-reference
 version: 2.1
 
-
+# circle-ci实现CI大致流程: 监听到github代码推送之后,会拉去对应代码仓库,并读取仓库中的config.yml配置文件;然后安装配置文件设置的环境和任务进行执行
 jobs:
-  build: # this can be any name you choose
-    executor: node/default # use the default executor defined within the orb
+  build:
+    # this can be any name you choose
+    docker:
+      - image: cimg/node:22.3.0
+    branches: # 指定使用的分支
+      only:
+        - main
+      - add_ssh_keys:
+          fingerprints:
+            - '93:15:15:64:15:64:15:64:15:16:64:9b'  # 这个就是添加ssh key生成的指纹id，将其复制到这里即可
     steps:
-      - checkout
-      - node/install-packages:
-          pkg-manager: npm
-      - run:
-          command: npm run docs:build
-          name: Build
-      - persist_to_workspace:  
-      # 每个作业(job)都会在一个独立的工作空间中运行;这个工作空间是作业执行期间的临时目录，用于存放项目代码、依赖安装结果、构建产物等
-      # 用于将指定的文件/目录临时保存到共享工作区中,以供本文件中工作流(workflows属性指定)中的其他作业(jobs属性指定)使用
+      - checkout # 从githun拉去代码
+      - run: sudo npm install
+      - run: npm run docs:build
+      - persist_to_workspace:
+          # 每个作业(job)都会在一个独立的工作空间中运行;这个工作空间是作业执行期间的临时目录，用于存放项目代码、依赖安装结果、构建产物等
+          # 用于将指定的文件/目录临时保存到共享工作区中,以供本文件中工作流(workflows属性指定)中的其他作业(jobs属性指定)使用
           root: ~/blog
           # 指定本作业的工作空间中要保存的文件或目录的根路径;这个根路径可以是绝对路径或相对路径
           # ~/blog：表示用户的主目录下的 blog 目录
@@ -29,10 +34,4 @@ workflows:
   build_deploy: # This is the name of the workflow, feel free to change it to better match your workflow.
     # Inside the workflow, you define the jobs you want to run.
     jobs:
-      - node/test:
-          # This is the node version to use for the `cimg/node` tag
-          # Relevant tags can be found on the CircleCI Developer Hub
-          # https://circleci.com/developer/images/image/cimg/node
-          version: '16.10'
-          # If you are using yarn, change the line below from "npm" to "yarn"
-          pkg-manager: npm
+      - build:
