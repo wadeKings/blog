@@ -11,7 +11,7 @@ star: true
 sticky: true
 ---
 
-# CI/CD工具BuildMaster的安装与使用
+# CI/CD工具BuildMaster的安装
 
 ## 安装SQL-SERVER
 
@@ -50,3 +50,6 @@ docker run -d --name=buildmaster --restart=unless-stopped \
 ```
 5. 访问地址: `http://localhost:81/` 
 > 补充: 如果是本地部署,则使用localhost,否则换成自己的IP地址
+
+
+

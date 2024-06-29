@@ -1,0 +1,38 @@
+# Use the latest 2.1 version of CircleCI pipeline process engine.
+# See: https://circleci.com/docs/configuration-reference
+version: 2.1
+
+
+jobs:
+  build: # this can be any name you choose
+    executor: node/default # use the default executor defined within the orb
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: npm
+      - run:
+          command: npm run docs:build
+          name: Build
+      - persist_to_workspace:  
+      # 每个作业(job)都会在一个独立的工作空间中运行;这个工作空间是作业执行期间的临时目录，用于存放项目代码、依赖安装结果、构建产物等
+      # 用于将指定的文件/目录临时保存到共享工作区中,以供本文件中工作流(workflows属性指定)中的其他作业(jobs属性指定)使用
+          root: ~/blog
+          # 指定本作业的工作空间中要保存的文件或目录的根路径;这个根路径可以是绝对路径或相对路径
+          # ~/blog：表示用户的主目录下的 blog 目录
+          # ~: 表示当前用户的主目录
+          paths: .
+          # 指定相对于 root 目录(root属性指定)的路径列表，这些路径将被保存到共享的工作空间中; 它可以是单个文件、目录或多个文件和目录的列表
+
+# Orchestrate jobs using workflows
+# See: https://circleci.com/docs/workflows/ & https://circleci.com/docs/configuration-reference/#workflows
+workflows:
+  build_deploy: # This is the name of the workflow, feel free to change it to better match your workflow.
+    # Inside the workflow, you define the jobs you want to run.
+    jobs:
+      - node/test:
+          # This is the node version to use for the `cimg/node` tag
+          # Relevant tags can be found on the CircleCI Developer Hub
+          # https://circleci.com/developer/images/image/cimg/node
+          version: '16.10'
+          # If you are using yarn, change the line below from "npm" to "yarn"
+          pkg-manager: npm
