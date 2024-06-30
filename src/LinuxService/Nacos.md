@@ -10,7 +10,7 @@ tag:
 star: true
 sticky: true
 ---
-# Nacos安装
+# `docker`安装`Nacos`
 1. 参考文章: `https://nacos.io/zh-cn/docs/v2/quickstart/quick-start-docker.html`
 2. 创建目录: `mkdir -p env/nacos`
 3. 仓库拉取: `git clone https://github.com/nacos-group/nacos-docker.git` 
