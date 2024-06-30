@@ -26,4 +26,14 @@ export default navbar([
     icon: "website",
     link: '/FrontEndWeb/'
   },
+  {
+    text: 'LinuxService',
+    icon: "web",
+    link: '/LinuxService/'
+  },
+  {
+    text: 'WindowsSoftWare',
+    icon: "web",
+    link: '/WindowsSoftWare/'
+  },
 ]);
