@@ -22,7 +22,7 @@ sticky: true
 1. 环境准备: `https://www.yuque.com/shenzaixijiezhizhong/gbygqg/fxx2ocpdhr7ad5xp#JPpeqXShell` 连接虚拟机小节
 2. 查看`IP`: 终端输入`ipconfig`命令`--->`无线局域网适配器`WLANIPV4`地址就是我们的`IP`地址`---`但是这个`IP`地址是会改变的
 3. 复制目录: 将`elasticsearch8111config`目录下的`certs`目录复制到`metricbeat8111`目录下
-![img.png](image/img_15.png)
+![img.png](/assets/images/LinuxService/img_15.png)
 4. 重要配置: 打开`metricbeat`的 `config` 目录中的`metricbeat.yml` 文件,做如下修改
 ```text
 metricbeat.config.modules:
@@ -51,7 +51,7 @@ output.elasticsearch:
   ssl.certificate_authorities: ["./certs/http_ca.crt"] 
 ```
 5. 配置测试: 终端打开`metricbeat8111``--->`输入`./metricbeat test output`
-![img.png](image/img_10.png)
+![img.png](/assets/images/LinuxService/img_10.png)
 6. 信息保护: 终端打开`metricbeat8112``--->``./metricbeat keystore create``--->`输入`./metricbeat keystore add ES_USER` `--->`输入`ES`账号的用户名`liu``--->`输入`./metricbeat keystore add ES_PASSWORD``--->`输入`ES`账号的密码`liuxiansheng``--->`修改`metricbeat`的`config`目录中的`metricbeat.yml`文件为如下所示
 > 补充: `./metricbeat keystore list`可以查看添加到`keystore`的变量
 ```text
@@ -78,7 +78,7 @@ output.elasticsearch:
 # 运行服务
 1. 数据准备: 终端打开`metricbeat8111``--->`输入`./metricbeat setup -e`
 2. `kibana`设置: 主机终端打开`kibana8111`目录下`kibana.yml``--->`添加`server.host: "0.0.0.0"``----`不要在第一次运行之前添加该属性,不然展示链接有问题
-![img.png](image/img_11.png)
+![img.png](/assets/images/LinuxService/img_11.png)
 4. 启动`metricbeat`: 终端打开`metricbeat8111``--->`依次输入下列命令`---`先启动`kibana`
 ```bash
    sudo chown root metricbeat.yml
@@ -86,7 +86,7 @@ output.elasticsearch:
    sudo ./metricbeat -e
 ```
 4. `Kibana`查看模块: 访问`http://localhost:5601/` `--->`点击图标`--->`点击`Dashboard`
-![img.png](image/img_12.png)
-![img.png](image/img_13.png)
+![img.png](/assets/images/LinuxService/img_12.png)
+![img.png](/assets/images/LinuxService/img_13.png)
 5. `Kibana`查看模块: 访问`http://localhost:5601/` `--->`点击图标`--->`点击`Discovery`
-![img.png](image/img_14.png)
+![img.png](/assets/images/LinuxService/img_14.png)

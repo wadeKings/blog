@@ -23,11 +23,11 @@ sticky: true
    - `sites-available`: 存放可用的虚拟主机配置文件,每个网站的配置文件都存放在这里  
    - `sites-enabled`: 存放已启用的虚拟主机符号链接,通过将`sites-available`目录中的配置文件链接到`sites-enabled`目录中的配置文件,可以启用相应的虚拟主机
    - `proxy_params`: 定义了代理服务器的参数,通常用于配置反向代理
-![img_1.png](image/img_1.png)
+![img_1.png](/assets/images/LinuxService/img_1.png)
 4. 查看执行用户: `ps aux | grep nginx`,若显示非`linux`系统上的用户则说明不正确(需要先运行Nginx),这将导致部署后访问显示`403`,则需要修改执行用户
-![img_2.png](image/img_2.png)
+![img_2.png](/assets/images/LinuxService/img_2.png)
 >  修改执行用户: `sudo micro /etc/nginx/nginx.conf``--->`将`user`改成`root``--->`保存退出 
->  ![img_3.png](image/img_3.png)
+>  ![img_3.png](/assets/images/LinuxService/img_3.png)
 
 # `docker`安装`Nginx`
 1. 参考: `https://blog.csdn.net/BThinker/article/details/123507820`

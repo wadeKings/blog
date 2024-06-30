@@ -17,17 +17,17 @@ sticky: true
    - 单点故障问题解决: 将分片数据在不同节点上进行备份`---`要集群
 2. 节点角色: `https://cloud.tencent.com/developer/article/2009025` `----`若未设置节点类型,则默认具有非协调/`coordinating`节点角色之外的所有角色
 3. 理想集群:一个完整可使用的集群架构示例
-![img.png](image/img_6.png)
+![img.png](/assets/images/LinuxService/img_6.png)
 4. 集群节点状态:`https://zhuanlan.zhihu.com/p/634291807`
 
 4. 集群存储数据: 新增文档时,`coordinating node`通过算法`shard = hash(_routing) % number_of_shards` `--- ``_routing` 默认是文档的`id` `+` 索引库创建后不能修改分片数量`---`来计算文档存储的主分片号`---`会同步文档到对应的副分片中,以保证数据均衡`---`带星号的是主节点
-![img.png](image/img_7.png)
+![img.png](/assets/images/LinuxService/img_7.png)
 5. 集群查询: `elasticsearch`的查询分成两个阶段
    - `scatter phase`分散阶段: `coordinating node`会把请求分发到每一个分片
    - `gather phase`聚集阶段: `coordinating node`汇总`data node`的搜索结果,并处理为最终结果集返回给用户
-![img.png](image/img_8.png)
+![img.png](/assets/images/LinuxService/img_8.png)
 7. 故障转移: 集群的`master`节点会监控的节点状态,若发现有节点故障,则会立即将故障节点中的数据切片迁移到其他节点上`---``Node1`主节点;`Node2`,`Node3`为候选主节点;当主节点发送故障时,从备选主节点中选举出一个主节点,然后由主节点做故障转移
-![img.png](image/img_9.png)
+![img.png](/assets/images/LinuxService/img_9.png)
 
 # 集群搭建
 1. 搭建计划: 在完成单体搭建的基础上搭建一个有三个节点的集群`---`至少要有三个节点

@@ -16,4 +16,4 @@ sticky: true
 >  补充: 在未安装`jdk`之前，可以使用`java -version`查看有哪些`jre`可以安装
 3. 位置查看: `readlink -f $(which java)``---`查看`java`的安装路径
 > 说明: `java-21-openjdk-amd64`是`jdk`的安装路径
-![img.png](image/img_4.png)
+![img.png](/assets/images/LinuxService/img_4.png)

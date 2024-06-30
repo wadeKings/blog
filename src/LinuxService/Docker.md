@@ -70,7 +70,7 @@ sudo systemctl daemon-reload		#重启daemon进程
 sudo systemctl restart docker		#重启docker
 ```
 4. 代理验证: `docker info`;如下则成功
-![img.png](image/img.png)
+![img.png](/assets/images/LinuxService/img.png)
 
 # 完全卸载
 1. 参考文章:https://www.cnblogs.com/shmily3929/p/12085163.html
