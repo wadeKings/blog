@@ -154,5 +154,5 @@ xpack.monitoring.elasticsearch.collection.enabled: true
 http.cors.enabled: true
 http.cors.allow-origin: "*"
 ```
-8. 配置测试: 分别用终端打开`elasticsearch81112`和`elasticsearch81113`目录下的`bin`目录`--->`输入 `.\elasticsearch.bat``--->`https://localhost:9201/` `+` `https://localhost:9202/` `---`账号是同一账号
+8. 配置测试: 分别用终端打开`elasticsearch81112`和`elasticsearch81113`目录下的`bin`目录`--->`输入 `.\elasticsearch.bat` `--->` `https://localhost:9201/` `+` `https://localhost:9202/` `---`账号是同一账号
 >  参考文章: `https://www.cnblogs.com/h--d/p/13192992.html` `----`安装了`kibana`
