@@ -10,7 +10,7 @@ tag:
 star: true
 sticky: true
 ---
-
+# `Metricbeat`
 # `Metricbeat`安装
 
 1. 下载安装: `sudo apt install curl``--->``curl -L -O https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-8.11.1-linux-x86_64.tar.gz` `---`与`elasticsearch`版本一致

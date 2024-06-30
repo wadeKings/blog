@@ -10,6 +10,7 @@ tag:
 star: true
 sticky: true
 ---
+# `JDK`
 # 命令安装`JDK`
 1. 安装下载: `sudo apt install openjdk-21-jdk-headless`
 2. 安装验证: `java -version`

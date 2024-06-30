@@ -10,6 +10,7 @@ tag:
 star: true
 sticky: true
 ---
+# `Nginx`
 # 命令安装`Nginx`
 1. 下载安装:`sudo apt update``--->``sudo apt install nginx -y`
 2. 配置查看:`nginx -t``---`查看`Nginx`配置文件的路径

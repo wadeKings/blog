@@ -10,6 +10,7 @@ tag:
 star: true
 sticky: true
 ---
+# `Redis`
 # 命令安装`Redis`
 1. 下载安装: `sudo apt update``--->``sudo apt install redis-server``---`默认后台运行和自动启动
 2. 运行检查: `sudo systemctl status redis-server`

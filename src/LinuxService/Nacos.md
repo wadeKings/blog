@@ -10,6 +10,7 @@ tag:
 star: true
 sticky: true
 ---
+# `Nacos`
 # `docker`安装`Nacos`
 1. 参考文章: `https://nacos.io/zh-cn/docs/v2/quickstart/quick-start-docker.html`
 2. 创建目录: `mkdir -p env/nacos`

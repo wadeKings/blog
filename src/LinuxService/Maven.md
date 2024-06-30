@@ -10,7 +10,7 @@ tag:
 star: true
 sticky: true
 ---
-
+# `Maven`
 # 命令安装`Maven`
 1. 下载安装: `sudo apt install maven`
 2. 安装验证: `mvn -version``---`会显示`maven`安装目录的路径`path`

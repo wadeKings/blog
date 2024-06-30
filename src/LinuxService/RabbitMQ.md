@@ -10,6 +10,7 @@ tag:
 star: true
 sticky: true
 ---
+# `RabbitMQ`
 # 安装`RabbitMQ`
 1. 软件更新: `sudo apt update``---`确保安装的`erlang`与`rabbitmq`版本都是最新的
 2. 安装`Erlang`: `sudo apt install erlang`
