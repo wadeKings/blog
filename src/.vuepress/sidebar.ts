@@ -6,6 +6,6 @@ export default sidebar({
   "/JavaDesktop/":  "structure",
   "/FrontEnd/":  "structure",
   "/FrontEndWeb/":  "structure",
-  "/WindowsSoftWare": "structure",
-  "/LinuxService": "structure",
+  "/WindowsSoftWare/": "structure",
+  "/LinuxService/": "structure",
 });
