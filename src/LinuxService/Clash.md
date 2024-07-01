@@ -20,16 +20,15 @@ sticky: true
 4. `clash`运行：进入`clash`目录`--->`双击`cfw``---``clash`的启动文件
 ![img.png](/assets/images/LinuxService/img_17.png)
 5. 代理设置：点击树形图标`--->`点击设置图标`--->`点击网络`--->`点击代理`--->`开启代理`--->`设置为手动`--->`照图填写`--->`保存
->  参考视频：`https://www.youtube.com/watch?v=pTlso8m_iRk&t=325s`
-
 ![img.png](/assets/images/LinuxService/img_18.png)
 ![img.png](/assets/images/LinuxService/img_19.png)
 ![img.png](/assets/images/LinuxService/img_20.png)
 ![img.png](/assets/images/LinuxService/img_21.png)
+>  参考视频：`https://www.youtube.com/watch?v=pTlso8m_iRk&t=325s`
 
 
 # 命令界面安装
-1. 安装参考：`https://www.joeyne.cool/http/proxy/ubuntu-%e5%ae%89%e8%a3%85clash%e5%b9%b6%e9%85%8d%e7%bd%ae%e5%bc%80%e6%9c%ba%e5%90%af%e5%8a%a8/` `---`使用 `clash for linux`
+1. 安装参考：`https://www.joeyne.cool/http/proxy/ubuntu-%e5%ae%89%e8%a3%85clash%e5%b9%b6%e9%85%8d%e7%bd%ae%e5%bc%80%e6%9c%ba%e5%90%af%e5%8a%a8/`
 2. 安装下载：点击`https://www.clash.la/releases/` `--->`翻到内核`--->`选择`clash-linux-amd64`
 ![img.png](/assets/images/LinuxService/img_23.png)
 ![img.png](/assets/images/LinuxService/img_24.png)
@@ -38,20 +37,21 @@ sticky: true
 4. 权限赋予：用`xftp`给`clash`文件添加所有权限
 ![img.png](/assets/images/LinuxService/img_26.png)
 ![img.png](/assets/images/LinuxService/img_27.png)
-5. 下载文件：点击`https://cdn.jsdelivr.net/gh/Dreamacro/maxmind-geoip@release/Country.mmdb` `--->`这将下载一个名为`Country.mmdb`的文件`--->`使用`xftp`上传到`/home/admin/.config/clash`目录
+5. 下载文件：点击`https://cdn.jsdelivr.net/gh/Dreamacro/maxmind-geoip@release/Country.mmdb` `--->`这将下载`Country.mmdb`文件`--->`使用`xftp`上传到`/home/admin/.config/clash`目录
 ![img.png](/assets/images/LinuxService/img_28.png)
-6. 获取文件：打开`windows`安装的`clash``--->`找到使用的配置文件`--->`点击`show in folder``--->`将选中的文件重命名为`config.yaml``--->`使用`xftp`上传到`/home/admin/.config/clash`目录
->  补充：`admin`是用户名，需要换成自己的用户名
-
+6. 获取文件：打开`windows`下安装的`clash``--->`找到使用的配置文件`--->`点击`show in folder``--->`将选中的文件命名为`config.yaml``--->`使用`xftp`上传到`/home/admin/.config/clash`目录
 ![img.png](/assets/images/LinuxService/img_29.png)
 ![img.png](/assets/images/LinuxService/img_30.png)
 ![img.png](/assets/images/LinuxService/img_31.png)
+>  补充说明：`admin`是用户名，需要换成自己的用户名
 7. 运行`clash`：`cd /usr/local/bin` `--->` `clash`
 ![img.png](/assets/images/LinuxService/img_32.png)
 8. 新建复制：`sudo micro /etc/systemd/system/clash.service/clash.service``--->`复制下列内容到`clash.service``--->``ctrl+s`保存`--->``ctrl+q`退出
-> 补充：从这一步开始是配置`clash`自动启动
-> 参考：`https://afeng616.github.io/clash-for-ubuntu/`
-> 注意：`admin`是用户名，需要换成自己的用户名
+> 补充说明：从这一步开始是配置`clash`自动启动
+
+> 参考文章：`https://afeng616.github.io/clash-for-ubuntu/`
+
+> 注意事项：`admin`是用户名，需要换成自己的用户名
 ```text
 [Unit]
 Description=clash 
