@@ -19,7 +19,6 @@ sticky: true
 3. 理想集群：一个完整可使用的集群架构示例
 ![img.png](/assets/images/LinuxService/img_6.png)
 4. 集群节点状态：`https://zhuanlan.zhihu.com/p/634291807`
-
 4. 集群存储数据：新增文档时,`coordinating node`通过算法`shard = hash(_routing) % number_of_shards` `--- ``_routing` 默认是文档的`id` `+` 索引库创建后不能修改分片数量`---`来计算文档存储的主分片号`---`会同步文档到对应的副分片中,以保证数据均衡`---`带星号的是主节点
 ![img.png](/assets/images/LinuxService/img_7.png)
 5. 集群查询：`elasticsearch`的查询分成两个阶段
@@ -28,7 +27,6 @@ sticky: true
 ![img.png](/assets/images/LinuxService/img_8.png)
 7. 故障转移：集群的`master`节点会监控的节点状态,若发现有节点故障,则会立即将故障节点中的数据切片迁移到其他节点上`---``Node1`主节点;`Node2`,`Node3`为候选主节点;当主节点发送故障时,从备选主节点中选举出一个主节点,然后由主节点做故障转移
 ![img.png](/assets/images/LinuxService/img_9.png)
-
 # 集群搭建
 1. 搭建计划：在完成单体搭建的基础上搭建一个有三个节点的集群`---`至少要有三个节点
 2. 下载解压：打开终端`--->`依次执行下列命令
@@ -45,18 +43,14 @@ tar -xzf elasticsearch-8.11.1-linux-x86_64.tar.gz
 ```text
 # 设置集群的名字
 cluster.name: test
-
 # 设置主节点名字
 node.name: node-1
-
 #设置索引数据的存储路径
 path.data: ./data    #换成自己的路径
 #设置日志文件的存储路径
 path.logs: ./logs    #换成自己的路径
-
 # 设置ES监听地址，默认为192.168.0.1; 0.0.0.0: 任意机器都可访问
 network.host: 0.0.0.0
-
 #设置对外服务的http端口，默认为9200
 http.port: 9200
 ```
@@ -67,7 +61,6 @@ http.port: 9200
 ```text
 # elasticsearch81111
 cluster.name: test
-
 node.name: node-1
 #设置节点角色：
   # master/管理集群的状态信息
@@ -83,48 +76,35 @@ node.name: node-1
   # transform/应用程序和转换
   # voting_only/仅投票节点
 node.roles: master
-
 #默认先以node-1作为master结点 集群初始化主节点，用于第一次集群选主
 cluster.initial_master_nodes: ["node-1"]
-
 network.host: 0.0.0.0
-
 http.port: 9201
 # 锁定物理内存地址，防止es内存被交换，从而提高ES性能；但是设置以后因为服务器配置不同可能会启动报错 按需配置
 # bootstrap.memory_lock: true
-
 #设置集群自动发现机器ip集合
 discovery.seed_hosts: ["localhost:9301", "localhost:9302","localhost:9303"]
-
 # 开启传统监控
 xpack.monitoring.elasticsearch.collection.enabled: true
-
 # 跨越配置
 http.cors.enabled: true
 http.cors.allow-origin: "*"
-
 ```
 ```text
 # elasticsearch81112
 cluster.name: test
 node.name: node-2
 node.roles: data
-
 #默认先以node-1作为master结点 集群初始化主节点，用于第一次集群选主
 cluster.initial_master_nodes: ["node-1"]
-
 network.host: 0.0.0.0
-
 http.port: 9202
 # 锁定物理内存地址，防止es内存被交换，从而提高ES性能；但是设置以后因为服务器配置不同可能会启动报错 按需配置
 # bootstrap.memory_lock: true
-
 #设置集群自动发现机器ip集合
 discovery.seed_hosts: ["localhost:9301", "localhost:9302","localhost:9303"]
-
 # 开启传统监控
 xpack.monitoring.elasticsearch.collection.enabled: true
-
 # 跨越配置
 http.cors.enabled: true
 http.cors.allow-origin: "*"
@@ -134,22 +114,16 @@ http.cors.allow-origin: "*"
 cluster.name: test
 node.name: node-3
 node.roles: data
-
 #默认先以node-1作为master结点 集群初始化主节点，用于第一次集群选主
 cluster.initial_master_nodes: ["node-1"]
-
 network.host: 0.0.0.0
-
 http.port: 9203
 # 锁定物理内存地址，防止es内存被交换，从而提高ES性能；但是设置以后因为服务器配置不同可能会启动报错 按需配置
 # bootstrap.memory_lock: true
-
 #设置集群自动发现机器ip集合
 discovery.seed_hosts: ["localhost:9301", "localhost:9302","localhost:9303"]
-
 # 开启传统监控
 xpack.monitoring.elasticsearch.collection.enabled: true
-
 # 跨越配置
 http.cors.enabled: true
 http.cors.allow-origin: "*"
