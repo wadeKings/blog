@@ -59,10 +59,15 @@ PONG
 .
 └── programming
     └── db
+        ├── mysql
+        │   ├── conf
+        │   └── docker-compose.yml
         └── redis
             ├── conf
             │   └── redis.conf
             ├── data
+            │   ├── appendonlydir  [error opening dir]
+            │   └── dump.rdb
             └── docker-compose.yml
 ```
 6. 下载配置：点击`https://redis.io/docs/latest/operate/oss_and_stack/management/config/` `--->` 下翻到如图位置`--->` 选择7.2版本并复制粘贴到`redis.conf`
@@ -79,16 +84,19 @@ services:
   redis:
     image: redis:7.2.5
     container_name: redis
-    restart: always # 开机启动，失败也会一直重启
+    restart: unless-stopped
+    privileged: true
     ports:
       - "6379:6379"
     volumes:
       - /home/admin/programming/db/redis/conf/redis.conf:/etc/redis/redis.conf
       - /home/admin/programming/db/redis/data:/data
     command: ["redis-server", "/etc/redis/redis.conf", "--appendonly", "yes", "--requirepass", "wo372159qwa"]
+    
 ```
 5. 启动服务：`sudo docker-compose -f /home/admin/programming/db/redis/docker-compose.yml up -d`
 6. 查看日志：`sudo docker logs -f redis`
+7. 参考文章：`https://cloud.tencent.com/developer/article/2169945`
 
 # `Reids`客户端
 1. `Tiny RDM`：`https://redis.tinycraft.cc/zh/`
