@@ -7,14 +7,9 @@ export default navbar([
     link: '/Java/' // 对应src/Java/README.md
   },
   {
-    text: 'JavaWeb',
-    icon: "web",
-    link: '/JavaWeb/'
-  },
-  {
-    text: 'JavaDesktop',
+    text: 'Desktop',
     icon: "Desktop",
-    link: '/JavaDesktop/'
+    link: '/Desktop/'
   },
   {
     text: 'FrontEnd',
@@ -22,9 +17,9 @@ export default navbar([
     link: '/FrontEnd/'
   },
   {
-    text: 'FrontEndWeb',
+    text: 'Python',
     icon: "website",
-    link: '/FrontEndWeb/'
+    link: '/Python/'
   },
   {
     text: 'LinuxService',

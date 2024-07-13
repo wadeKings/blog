@@ -10,8 +10,8 @@ tag:
 star: true
 sticky: true
 ---
-
-# CI/CD工具BuildMaster的安装
+# `BuildMaster`
+# 安装`BuildMaster`
 
 ## 安装SQL-SERVER
 
