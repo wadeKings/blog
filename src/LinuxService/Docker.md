@@ -15,7 +15,7 @@ sticky: true
 1. `docker`： 一个开源的应用容器引擎，我们可以使用docker将项目及其依赖关系一起打包到一个容器中，从而为任何应用/项目创建一个轻量级、可移植、自给自足的容器
 2. 容器： 类似于集装箱，各式各样的货物，经过集装箱的标准化进行托管，而集装箱和集装箱之间没有影响
 # `Docker`安装
-1. 列表更新： `sudo apt update` 
+1. 版本升级： `sudo apt update` 
 2. 下载安装： `sudo apt install docker.io`
 > 官方安装： `https://docs.docker.com/engine/install/ubuntu/`
 > 添加密钥出错: `https://blog.51cto.com/u_16175465/7446963`; 若代理无效,则切成美国节点再次尝试

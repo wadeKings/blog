@@ -35,6 +35,7 @@ logfile "redis.log"
 ```
 5. 配置生效：`sudo systemctl restart redis-server`
 
+
 # 使用`Redis`
 1. 客户端连接：`redis-cli -h 127.0.0.1  -p 6379 -a 123321``---`默认连接`
 ```text
@@ -49,3 +50,42 @@ logfile "redis.log"
 PONG
 ```
 3. 停止运行：`redis-cli -u 123321 shutdown``---`指定密码停止使用
+
+# `Docker`安装`Redis`
+
+1. 拉取镜像：`sudo docker pull redis:7.2.5`
+2. 创建目录：创建之后的目录结构如下，这里的`.`表示当前用户的根目录
+```text
+.
+└── programming
+    └── db
+        └── redis
+            ├── conf
+            │   └── redis.conf
+            ├── data
+            └── docker-compose.yml
+```
+6. 下载配置：点击`https://redis.io/docs/latest/operate/oss_and_stack/management/config/` `--->` 下翻到如图位置`--->` 选择7.2版本并复制粘贴到`redis.conf`
+![img.png](/assets/images/LinuxService/img_35.png)
+3. `Redis`配置: 修改`redis.conf`中的`bind`和`requirepass`属性
+```text
+bind 0.0.0.0
+requirepass wo372159qwa
+```
+4. `Docker-compose`配置: 复制粘贴到`docker-compose.yml`中
+```text
+version: '3.0'
+services:
+  redis:
+    image: redis:7.2.5
+    container_name: redis
+    restart: always # 开机启动，失败也会一直重启
+    ports:
+      - "6379:6379"
+    volumes:
+      - /home/admin/programming/db/redis/conf/redis.conf:/etc/redis/redis.conf
+      - /home/admin/programming/db/redis/data:/data
+    command: ["redis-server", "/etc/redis/redis.conf", "--appendonly", "yes", "--requirepass", "wo372159qwa"]
+```
+5. 启动服务：`sudo docker-compose -f /home/admin/programming/db/redis/docker-compose.yml up -d`
+6. 查看日志：`sudo docker logs -f redis`
