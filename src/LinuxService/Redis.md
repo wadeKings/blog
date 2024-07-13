@@ -89,6 +89,7 @@ services:
 ```
 5. 启动服务：`sudo docker-compose -f /home/admin/programming/db/redis/docker-compose.yml up -d`
 6. 查看日志：`sudo docker logs -f redis`
+7. 参考文章：`https://cloud.tencent.com/developer/article/2169945`
 
 # `Reids`客户端
 1. `Tiny RDM`：`https://redis.tinycraft.cc/zh/`
