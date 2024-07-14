@@ -35,7 +35,7 @@ sticky: true
         │   └── data
         │   └── conf
         │   │   └── my.cnf    
-        │   └── log
+        │   └── logs
         └── redis
             ├── conf
             │   └── redis.conf
